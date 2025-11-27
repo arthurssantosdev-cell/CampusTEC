@@ -1,0 +1,9 @@
+# Ignorar arquivo de banco de dados
+bd campustec host.txt
+
+# Ignorar pasta do banco de dados
+banco/
+
+# Ignorar arquivo de conexão com senha
+conexao.php
+

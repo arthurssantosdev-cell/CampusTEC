@@ -1,0 +1,17 @@
+
+campust1_campustec
+
+localhost
+
+Nome de usuário:
+campust1_campustec
+Senha:
+joao2364
+
+FTP client configuration
+
+FTP Host: panel.freehosting.com
+Username: campust1
+Password: Sw99m4Tdv3
+Remote directory: public_html
+

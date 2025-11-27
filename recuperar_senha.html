@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recuperar Senha</title>
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Nova+Square&display=swap');
+
+    body {
+        margin: 0;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        overflow: hidden;
+    }
+
+    img {
+        width: 90px;
+        z-index: 2;
+    }
+
+    #textoPrincipal {
+        font-size: 60px;
+    }
+
+    span {
+        font-family: "Nova Square", sans-serif;
+        -webkit-text-stroke-width: 0.5px;
+        -webkit-text-stroke-color: #ffffff;
+    }
+
+    .main-login {
+        width: 100vw;
+        height: 100vh;
+        background: linear-gradient(180deg, #000000 0%, #53884B 100%);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .left-login {
+        width: 30vw;
+        height: 100vh;
+        padding: 0 5%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        margin-left: 5%;
+    }
+
+    .left-login h1 {
+        color: #53884B; /* Verde das letras */
+    }
+
+    .right-login {
+        width: 50vw;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .card-login {
+        width: 60%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 30px 35px;
+        background: #112010;
+        border: 1px solid #ffffff;
+        border-radius: 50px; /* bordas */
+        box-shadow: 0px 10px 40px #00000056; /* sombras */
+    }
+
+    .card-login img {
+        width: 100px; /* Ajuste conforme necessário */
+        margin-bottom: 15px;
+    }
+
+    .card-login h1 {
+        color: #53884B; /* Verde das letras */
+        font-weight: 800; /* negrito/espessura da fonte */
+        margin: 0;
+    }
+
+    form {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    form label {
+        color: #ffffff; /* Branco */
+        margin: 10px 0;
+        font-size: 14px; /* Ajuste o tamanho conforme necessário */
+    }
+
+    form input {
+        width: 100%;
+        padding: 15px;
+        border: none;
+        border-radius: 10px;
+        color: #1b1b1b; /* Preto */
+        font-size: 12pt;
+        box-shadow: 0px 10px 40px #00000056;
+        outline: none;
+        box-sizing: border-box;
+        margin-bottom: 15px; /* Espaçamento entre os campos */
+    }
+
+    .btn-login {
+        width: 100%;
+        padding: 16px 0;
+        margin: 20px 0;
+        border: none;
+        border-radius: 8px;
+        text-transform: uppercase;
+        font-weight: 800;
+        letter-spacing: 3px;
+        color: #ffffff; /* Branco */
+        background: #53884B; /* Verde padrão */
+        cursor: pointer;
+        box-shadow: 0px 10px 40px -12px #53884B; /* Sombra verde */
+    }
+
+    #link-cadastro a {
+        text-decoration: none;
+        font-size: 12px;
+        color: #53884B; /* Verde padrão */
+    }
+
+    #link-cadastro p {
+        font-size: 12px;
+        color: #ffffff; /* Branco */
+    }
+
+    #imglogin {
+        width: 80%;
+        margin-left: 5%;
+    }
+
+    /* Responsividade */
+    @media (max-width: 890px) {
+        #textoPrincipal {
+            font-size: 6vw;
+        }
+        .card-login {
+            width: 70%;
+        }
+    }
+
+    @media (min-width: 1200px) {
+        #textoPrincipal {
+            font-size: 60px; /* Tamanho fixo para telas maiores */
+        }
+    }
+
+</style>
+</head>
+
+<body>
+    <div class="main-login">
+        <div class="right-login">
+            <div class="card-login">
+                <img src="imagens/mascote.png" alt="">
+                <form id="login-form" action="processa_rec_senha.php" method="post">
+                    <label for="email" style="color: white;">Email</label>
+                    <input type="text" name="email" id="email" placeholder="fulano@gmail.com" required>
+                    
+                    <label for="telefone" style="color: white;">Telefone</label>
+                    <input type="text" name="telefone" id="telefone" placeholder="(XX)XXXXX-XXXX" required>
+                    
+                    <button type="submit" class="btn-login">Enviar</button>
+                </form>
+
+                <div id="link-cadastro">
+                    <p>Voltar para <a href="login.html">Login</a></p>
+                </div>
+
+                <div id="login-message"></div>
+            </div><!--card-login-->
+        </div><!--right-login-->
+    </div><!--main-->
+</body>
+</html>
+

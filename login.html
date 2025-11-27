@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="css/login.css">
+    <title>Login</title>
+</head>
+
+<body>
+    <div class="main-login">
+        <div class="left-login">
+            <h1 id="textoPrincipal" style="color:#ffffff; font-size: 30px;">Bem Vindo Novamente.<br><span
+                    style="color: #ffffff">CampusTec</span></h1>
+            <img src="imagens/animacaoLogin.svg" alt="" id="imglogin">
+            <img src="imagens/animation.svg" alt="" width="60%">
+        </div><!--left-login-->
+        <div class="right-login">
+            <div class="card-login">
+                <img src="imagens/mascote.png" alt="">
+                <form id="login-form" action="processa_login.php" method="post">
+                    <label for="usuario">Selecione o tipo de usuario</label>
+                    <select name="usuario" id="usuario" style="    width: 100%;
+                    padding: 10px;
+                    border: none;
+                    border-radius: 10px;
+                    color: #1b1b1b; /* Preto */
+                    font-size: 12pt;
+                    box-shadow: 0px 10px 40px #00000056;
+                    outline: none;
+                    box-sizing: border-box;
+                    margin-bottom: 8px; /* Espaçamento entre os campos */">
+                        <option value="" disabled selected>Qual usuário é você?</option>
+                        <option value="recrutador">Recrutador</option>
+                        <option value="candidato">Candidato</option>
+                    </select>
+                    <label for="email" style="color: white;">E-mail:</label>
+                    <input type="text" name="email" id="email" placeholder="Digite seu e-mail pessoal aqui" required style="    width: 100%;
+                    padding: 10px;
+                    border: none;
+                    border-radius: 10px;
+                    color: #1b1b1b; /* Preto */
+                    font-size: 12pt;
+                    box-shadow: 0px 10px 40px #00000056;
+                    outline: none;
+                    box-sizing: border-box;
+                    margin-bottom: 8px; /* Espaçamento entre os campos */">
+                    <label for="senha" style="color: white;">Senha:</label>
+                    <div class="password-wrapper">
+                        <input type="password" name="senha" id="senha" placeholder="Digite sua senha aqui" required
+                            minlength="6" style="width: 100%;
+                        padding: 15px;
+                        border: none;
+                        border-radius: 10px;
+                        color: #1b1b1b; /* Preto */
+                        font-size: 12pt;
+                        box-shadow: 0px 10px 40px #00000056;
+                        outline: none;
+                        box-sizing: border-box;
+                        margin-bottom: 8px;">
+                        <i class="bi bi-eye-fill" id="togglePassword" style="cursor: pointer;"></i>
+                    </div>
+                    <button type="submit" class="btn-login" id="btn" style="margin-left: -1px;">Login</button>
+                </form>
+
+                <div id="link-cadastro">
+                    <p>Não tem conta? <a href="escolha.html">Crie uma!</a></p>
+                    <p>Esqueceu a senha? <a href="recuperar_senha.html">Recuperar!</a></p>
+                </div>
+
+                <div id="login-message"></div>
+            </div><!--card-login-->
+        </div><!--right-login-->
+    </div><!--main-->
+    <script>
+        function validatePassword() {
+            const password = document.querySelector('input[name="senha"]').value;
+            if (password.length < 6) {
+                alert("A senha deve ter pelo menos 6 caracteres.");
+                return false;
+            }
+            return true;
+        }
+
+        const togglePassword = document.querySelector('#togglePassword');
+        const password = document.querySelector('#senha');
+
+        togglePassword.addEventListener('click', function () {
+            // Alterna o tipo de input entre password e text
+            const type = password.getAttribute('type') === 'password' ? 'text' : 'password';
+            password.setAttribute('type', type);
+
+            // Alterna o ícone entre o olho aberto e o fechado
+            this.classList.toggle('bi-eye');
+            this.classList.toggle('bi-eye-slash');
+        });
+
+        // Verifica a URL para possíveis mensagens de erro
+        const urlParams = new URLSearchParams(window.location.search);
+        const erro = urlParams.get('erro');
+
+        // Alerta de erro de preenchimento de campos
+        if (erro === 'preenchimento') {
+            alert("Por favor, preencha todos os campos.");
+        }
+        // Alerta de erro de login (email ou senha incorretos)
+        if (erro === 'login') {
+            alert("Email ou senha incorretos.");
+        }
+        // Alerta de erro genérico do sistema
+        if (erro === 'sistema') {
+            alert("Ocorreu um erro no sistema. Tente novamente mais tarde.");
+        }
+    </script>
+</body>
+
+</html>
